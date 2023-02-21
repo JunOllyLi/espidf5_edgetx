@@ -1,0 +1,6 @@
+[submodule "components/lvgl_esp32_drivers"]
+	path = components/lvgl_esp32_drivers
+	url = git@github.com:JunOllyLi/lvgl_esp32_drivers.git
+[submodule "main/edgetx"]
+	path = main/edgetx
+	url = git@github.com:JunOllyLi/edgetx.git
