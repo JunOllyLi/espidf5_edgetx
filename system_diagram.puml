@@ -1,0 +1,46 @@
+@startuml
+component "ESP32-S3-WROOM" as esp32s3
+component "FT3236\nCapacitive\nTouch" as touch
+component "MCP23017" as gpio1
+component "MCP23017" as gpio2
+component "RTC\nAdafruit DS3231" as rtc
+component "FlySky Hall Gimbal" as gimbal
+component "Zorro 4in1 Radio" as radio
+component "Adafruit MAX98357A" as audio
+component "Trims and switches" as trims
+component "Buttons" as buttons
+frame "Adafruit\n3.5inch LCD module" as disp {
+	component "HXD8357D" as lcd
+	component "SD card" as sdcard
+}
+
+esp32s3 -u- audio : I2S
+esp32s3 -r- gimbal : UART\n(RX only)
+esp32s3 -d- radio : UART
+esp32s3 -u- sdcard : SPI
+esp32s3 - lcd : MCU\n8bit\nparallel
+() I2C
+esp32s3 -d- I2C : I2C
+touch -- I2C
+rtc -d- I2C
+gpio1 -u- I2C
+gpio2 -d- I2C
+
+gpio1 -d- buttons
+gpio2 -u- trims
+
+component "5V boost" as boost
+component "3V LDO" as ldo
+component "OR gate\n(SI2306 x 2)" as orgate
+
+boost -u- radio : 5V
+ldo - 3V
+
+component "power button" as pwrbtn
+pwrbtn - gpio1 : Power Button Detection
+pwrbtn -d- orgate : inA
+gpio1 -d- orgate : inB (pull up to 3V)
+orgate -d- ldo : out en
+
+gpio1 -r- boost: en
+@enduml
