@@ -16,5 +16,5 @@ option(EdgeTX_SUPERBUILD "Cross-compile EdgeTX for each toolchain" OFF)
 set(USE_OLED_FEATHERWING OFF)
 add_subdirectory(edgetx)
 
-target_compile_options(tx_firmware PRIVATE -Wno-error=format -Wno-format -Wno-missing-field-initializers)
+target_compile_options(tx_firmware PRIVATE -Wno-error=dangling-pointer= -Wno-error=format -Wno-format -Wno-missing-field-initializers)
 
