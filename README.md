@@ -1,3 +1,22 @@
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+This repository is obsolete. For EdgeTX ESP32 build, aka. Project Muffin, please use:
+
+https://github.com/JunOllyLi/edgetx_muffin.git
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
 Use ESP-IDF 5 to build EdgeTX to run on ESP32S3
 
 Get source code:
